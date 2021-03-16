@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Click Menus Demo</title>
+	<script src="../clicky-menus.js"></script>
+	<link rel="stylesheet" href="demo.css" />
+	<link rel="stylesheet" href="../clicky-menus.css" />
+</head>
+<body>
+	<!-- for use with <use> -->
+	<svg xmlns="http://www.w3.org/2000/svg"  hidden>
+		<symbol id="arrow" viewbox="0 0 16 16" >
+			<polyline points="4 6, 8 10, 12 6" stroke="#000" stroke-width="2" fill="transparent" stroke-linecap="round" />
+		</symbol>
+	</svg>
+
+	<!-- In the real world, all hrefs would have go to real, unique URLs, not a "#" -->
+	<nav id="site-navigation" class="site-navigation" aria-label="Clickable Menu Demonstration">
+		<ul class="main-menu clicky-menu no-js">
+			<li>
+				<a href="#">Home</a>
+			</li>
+			<li>
+				<a href="#">
+					Services
+					<svg aria-hidden="true" width="16" height="16">
+						<use xlink:href="#arrow" />
+					</svg>
+				</a>
+				<ul>
+					<li><a href="#">Design</a></li>
+					<li><a href="#">Development</a></li>
+					<li><a href="#">Accessibility</a></li>
+					<li><a href="#">Content Strategy</a></li>
+					<li><a href="#">Training</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">
+					Portfolio
+					<svg aria-hidden="true" width="16" height="16">
+						<use xlink:href="#arrow" />
+					</svg>
+				</a>
+				<ul>
+					<li><a href="#">Nonprofits</a></li>
+					<li><a href="#">Higher Education</a></li>
+					<li><a href="#">Associations</a></li>
+					<li><a href="#">Consultants</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">
+					About
+					<svg aria-hidden="true" width="16" height="16">
+						<use xlink:href="#arrow" />
+					</svg>
+				</a>
+				<ul>
+					<li><a href="#">Mission</a></li>
+					<li><a href="#">History</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</body>
+</html>

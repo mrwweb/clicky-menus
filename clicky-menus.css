@@ -1,0 +1,41 @@
+/**
+ * Initial state, hidden off screen
+ */
+.clicky-menu ul {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	visibility: hidden; /*[1]*/
+}
+
+/**
+ * No JS fallback
+ *
+ * Triggers menus on hover rather than click. Supports keyboard navigation in modern browsers.
+ */
+.clicky-menu.no-js li:hover > ul {
+	display: block;
+}
+.clicky-menu.no-js li:focus-within > ul { /*[2]*/
+	display: block;
+}
+
+/**
+ * Open/Close Menu Behavior with JS
+ */
+.clicky-menu ul[aria-hidden="false"] {
+	visibility: visible;
+}
+
+/* Prevent offscreen-submenus */
+.clicky-menu .sub-menu--right {
+	left: auto !important;
+	right: 0 !important;
+}
+
+/**
+ * Footnotes
+ *
+ * [1] Using visibility instead of display allows for easier transitions and animation of submenus
+ * [2] Must be a separate ruleset so that hover works in non-modern browsers
+ */

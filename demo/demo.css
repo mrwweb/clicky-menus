@@ -1,0 +1,139 @@
+body {
+	min-height: 100vh;
+	background: linear-gradient(-37deg, teal, purple, orange) center/cover no-repeat;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+				 Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+				 "Helvetica Neue", sans-serif;
+} 
+
+/* Hidden SVG used for down arrows */
+svg[hidden] {
+	display: none;
+	position: absolute;
+}
+
+.site-navigation {
+	width: 86%;
+	max-width: 782px;
+	margin: 100px auto;
+	box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+	background-color: #eee;
+	border-radius: 4px;
+}
+
+.clicky-menu {
+	justify-content: stretch;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+@media (min-width: 540px) {
+	.clicky-menu {
+		display: flex;
+	}
+}
+
+/* General Link & Button Styles */
+.clicky-menu a,
+.clicky-menu button {
+	margin: .25em;
+	padding: 1em;
+	background: transparent;
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+	font-family: inherit;
+	border-radius: 3px;
+}
+
+.clicky-menu a:hover,
+.clicky-menu button:hover {
+	background: #fff;
+}
+
+.clicky-menu a:focus,
+.clicky-menu button:focus {
+	outline: .125em dotted purple;
+	outline-offset: -.125em;
+}
+
+/* Top Level Items */
+.clicky-menu > li {
+	position: relative;
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: stretch;
+	flex-wrap: wrap;
+}
+
+.clicky-menu > li > a,
+.clicky-menu > li > button {
+	flex: 1 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	border: 0;
+	font-size: inherit;
+	line-height: 1.5;
+	cursor: pointer;
+}
+@media (min-width: 540px) {
+	.clicky-menu > li > a,
+	.clicky-menu > li > button {
+		justify-content: center;
+	}	
+}
+
+/* Icon */
+.clicky-menu svg {
+	width: 1em;
+	height: 1em;
+	margin-left: .5em;
+}
+
+.clicky-menu [aria-expanded="true"] svg {
+	transform: scaleY(-1);
+}
+
+/* Submenu Styles */
+.clicky-menu ul {
+	min-width: 100%;
+	width: 12em;
+	margin-top: .25em;
+	padding: 0;
+	list-style: none;
+	background-color: #eee;
+	border-radius: 3px;
+}
+@media (min-width: 540px) {
+	.clicky-menu {
+		box-shadow: 2px 4px 4px rgba(0,0,0,.2);
+	}
+}
+
+/* Responsive Submenu Behavior */
+.clicky-menu ul[aria-hidden="false"] {
+	position: static;
+	width: 100%;
+	flex: 0 0 auto;
+}
+
+@media (min-width: 540px) {
+	.clicky-menu ul[aria-hidden="false"] {
+		position: absolute;
+		width: auto;
+	}
+}
+
+/* Submenu Links */
+.clicky-menu ul a {
+	display: block;
+	padding-top: .375em;
+	padding-bottom: .375em;
+}
+@media (min-width: 540px) {
+	.clicky-menu ul a {
+		padding: .375em 1em;
+		white-space: nowrap;
+	}
+}
