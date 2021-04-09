@@ -14,10 +14,10 @@
  * Triggers menus on hover rather than click. Supports keyboard navigation in modern browsers.
  */
 .clicky-menu.no-js li:hover > ul {
-	display: block;
+	visibility: visible;
 }
 .clicky-menu.no-js li:focus-within > ul { /*[2]*/
-	display: block;
+	visibility: visible;
 }
 
 /**
