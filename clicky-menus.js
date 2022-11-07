@@ -18,8 +18,8 @@
 			i,
 			len;
 
-		this.init = function() {
-			menuSetup();
+		this.init = function( i ) {
+			menuSetup( i );
 			document.addEventListener( 'click', closeOpenMenu );
 		}
 
@@ -76,7 +76,7 @@
 
 		}
 
-		function closeOnEscKey(e) {
+		function closeOnEscKey( e ) {
 
 			if(	27 === e.keyCode ) {
 
@@ -105,9 +105,14 @@
 		/*===========================================================
 		=            Modify Menu Markup & Bind Listeners            =
 		=============================================================*/
-		function menuSetup() {
+		function menuSetup( i ) {
 
 			menu.classList.remove('no-js');
+
+			/* if parent of menu has no ID, give it one */
+			if( menu.parentElement.id === '' ) {
+				menu.parentElement.id = 'clicky-menu-' + i;
+			}
 
 			menu.querySelectorAll('ul').forEach( ( submenu ) => {
 
@@ -117,7 +122,7 @@
 
 					let button = convertLinkToButton( menuItem );
 
-					setUpAria( submenu, button );
+					setUpAria( submenu, button, i );
 
 					// bind event listener to button
 					button.addEventListener( 'click', toggleOnMenuClick );
@@ -158,15 +163,15 @@
 
 		}
 
-		function setUpAria( submenu, button ) {
+		function setUpAria( submenu, button, i ) {
 
 			const submenuId = submenu.getAttribute( 'id' );
 
 			let id;
 			if( null === submenuId ) {
-				id = button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';
+				id = button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu-' + i;
 			} else {
-				id = menuItemId + '-submenu';
+				id = menuItemId + '-submenu-' + i;
 			}
 
 			// set button ARIA
@@ -184,11 +189,13 @@
 	/* Create a ClickMenus object and initiate menu for any menu with .clicky-menu class */
 	document.addEventListener('DOMContentLoaded', function(){
 		const menus = document.querySelectorAll( '.clicky-menu' );
+		let i = 1;
 
 		menus.forEach( menu => {
 
 			let clickyMenu = new ClickyMenus(menu);
-			clickyMenu.init();
+			clickyMenu.init(i);
+			i++;
 
 		});
 	});
