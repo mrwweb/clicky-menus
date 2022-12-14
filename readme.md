@@ -36,7 +36,7 @@ Internet Explorer 11 support is possible if you include polyfills for [`closest`
 ```
 
 ## Setup
-Include `click-menus.js` anywhere in the DOM and `clicky-menus.css` in the `<head>`.
+Include `clicky-menus.js` anywhere in the DOM and `clicky-menus.css` in the `<head>`.
 
 ## Changelog
 
