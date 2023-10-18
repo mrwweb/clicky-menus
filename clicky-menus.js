@@ -13,8 +13,8 @@
 	const ClickyMenus = function( menu ) {
 
 		// DOM element(s)
-		let	container = menu.parentElement,
-			currentMenuItem,
+		const container = menu.parentElement;
+		let currentMenuItem,
 			i,
 			len;
 
@@ -171,7 +171,7 @@
 			if( null === submenuId ) {
 				id = button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu-' + i;
 			} else {
-				id = menuItemId + '-submenu-' + i;
+				id = submenuId + '-submenu-' + i;
 			}
 
 			// set button ARIA
