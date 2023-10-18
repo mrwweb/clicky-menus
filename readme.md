@@ -11,6 +11,15 @@ Clicky Menus lets you create a progressively-enhanced, accessible one-level drop
 - Close open submenu with click outside of open menu
 - Basic offscreen-menu prevention
 
+### Why only one level of submenu?
+
+This script only supports a single level of submenus, i.e., there are no "sub-sub-menus" or "tertiary menus". This is intentional because:
+
+1. I don't like them personally and think of them as a bit of a "navigation smell"—a la "code smell".
+2. This makes it very easy to make "mega menus" that can contain nested lists (basically permanently visible tertiary menus).
+
+If you really want this feature, there's an [open issue for sharing use cases](https://github.com/mrwweb/clicky-menus/issues/8). If you want to submit a pull request, please coordinate on that issue before doing any work!
+
 ## Browser Support
 
 All Modern Browsers such as Firefox, Chrome, Edge, and Safari.
@@ -36,7 +45,7 @@ Internet Explorer 11 support is possible if you include polyfills for [`closest`
 ```
 
 ## Setup
-Include `click-menus.js` anywhere in the DOM and `clicky-menus.css` in the `<head>`.
+Include `clicky-menus.js` anywhere in the DOM and `clicky-menus.css` in the `<head>`.
 
 ## Changelog
 
