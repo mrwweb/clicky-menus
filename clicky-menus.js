@@ -88,7 +88,7 @@
 		=============================================================*/
 		function menuSetup() {
 			menu.classList.remove( 'no-js' );
-			const submenuSelector = 'clickySubmenu' in menu.dataset ? menu.dataset.clickySubmenu : 'ul';
+			const submenuSelector = 'clickySubmenuSelector' in menu.dataset ? menu.dataset.clickySubmenuSelector : 'ul';
 
 			menu.querySelectorAll( submenuSelector ).forEach( ( submenu ) => {
 				const menuItem = submenu.parentElement;
