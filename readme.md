@@ -2,7 +2,7 @@
 
 Version 1.2.0
 
-Jump to: [About](#about), [Features](#features), [Setup & Configuration](#setup-&amp;-configuration), [Browser Support](#browser-support) [Changelog](#changelog)
+Jump to: [About](#about), [Features](#features), [Setup & Configuration](#setup--configuration), [Browser Support](#browser-support) [Changelog](#changelog)
 
 ## About
 
