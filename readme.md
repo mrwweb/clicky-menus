@@ -8,6 +8,8 @@ A project by Mark Root-Wiley, [MRW Web Design](https://MRWweb.com)
 
 Clicky Menus lets you create a progressively-enhanced, accessible one-level dropdown menu that opens when activated by click, touch, or `ENTER`/`SPACE`. The menu is progressively enhanced, supporting hover and keyboard navigation (in modern browsers) if JS is not enabled.
 
+[Demo on CodePen](https://codepen.io/mrwweb/pen/pXqKZO)
+
 Why should you want menus that work this way? Read the accompanying article on CSS Tricks, ["In Praise of the Unambiguous Click Menu"](https://css-tricks.com/in-praise-of-the-unambiguous-click-menu/).
 
 ## Features
