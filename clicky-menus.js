@@ -18,7 +18,9 @@
 
 		this.init = function() {
 			menuSetup();
-			document.addEventListener( 'click', closeOpenMenu );
+			document.addEventListener( 'click', closeIfClickOutsideMenu );
+			// custom event to allow outside scripts to close submenus
+			menu.addEventListener( 'clickyMenusClose', closeOpenSubmenu );
 		};
 
 		/*===================================================
@@ -77,8 +79,14 @@
 			}
 		}
 
-		function closeOpenMenu( e ) {
+		function closeIfClickOutsideMenu( e ) {
 			if ( currentMenuItem && ! e.target.closest( '#' + container.id ) ) {
+				toggleSubmenu( currentMenuItem );
+			}
+		}
+
+		function closeOpenSubmenu() {
+			if( currentMenuItem ) {
 				toggleSubmenu( currentMenuItem );
 			}
 		}
