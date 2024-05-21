@@ -1,0 +1,48 @@
+{
+  "name": "clicky-menus",
+  "version": "1.2.0",
+  "homepage": "https://github.com/mrwweb/clicky-menus#readme",
+  "description": "Simple click-triggered navigation submenus. Accessible and progressively enhanced.",
+  "author": {
+    "name": "Mark Root-Wiley, MRW Web Design",
+    "url": "https://MRWweb.com/"
+  },
+  "license": "MIT",
+  "keywords": [
+    "navigation",
+    "menus",
+    "accessible",
+    "progressive",
+    "enhancement",
+    "submenus",
+    "nav",
+    "dropdown",
+    "mega",
+    "menus"
+  ],
+  "main": "clicky-menus.js",
+  "style": "clicky-menus.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "clicky-menus.js",
+    "clicky-menus.css",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrwweb/clicky-menus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mrwweb/clicky-menus/issues"
+  },
+  "funding": [
+    {
+      "type" : "individual",
+      "url" : "https://www.paypal.com/paypalme/rootwiley"
+    }
+  ]
+}
