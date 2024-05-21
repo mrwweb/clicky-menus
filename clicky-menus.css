@@ -8,6 +8,11 @@
 	visibility: hidden; /*[1]*/
 }
 
+/* Contain position of submenu to parent list item. This is probably the 80% of the 80/20 use case */
+.clicky-menu > li {
+	position: relative;
+}
+
 /**
  * No JS fallback
  *
