@@ -1,9 +1,5 @@
 /**
- * Object for creating click-triggered navigation submenus
- *
- * Thanks for the inspiration:
- * 		- https://www.lottejackson.com/learning/a-reusable-javascript-toggle-pattern
- * 		- https://codepen.io/lottejackson/pen/yObQRM
+ * Clicky Menus v1.2.0
  */
 
 ( function() {

@@ -1,6 +1,8 @@
 # Clicky Menus
 
-Jump to: [About](#about), [Features](#features), [Setup](#setup), [Browser Support](#browser-support) [Changelog](#changelog)
+Version 1.2.0
+
+Jump to: [About](#about), [Features](#features), [Setup & Configuration](#setup-&amp;-configuration), [Browser Support](#browser-support) [Changelog](#changelog)
 
 ## About
 
@@ -31,12 +33,47 @@ This script only supports a single level of submenus, i.e., there are no "sub-su
 
 If you really want this feature, there's an [open issue for sharing use cases](https://github.com/mrwweb/clicky-menus/issues/8). If you want to submit a pull request, please coordinate on that issue before doing any work!
 
-## Setup
+## Setup & Configuration
+
+Clicky menus requires one JS file, one CSS file, and a list with the class `clicky-menu`. Most of the time, Clicky Menus requires no configuration!
 
 1. Include `clicky-menus.js` anywhere in the DOM and `clicky-menus.css` in the `<head>`.
 2. Put the `clicky-menu` class on the top-level `<ul>` element containing your menu
 
-### Expected Markup and Markup Transformation
+### Custom submenu selector
+
+If you have unusual markup or design requirements, you can set a custom selector for the submenu element with a `data-clicky-submenu-selector` attribute on the top-level `<ul>` element (the same one with the `clicky-menu` class).
+
+For example, if you only want to select the first level of nested `<ul>` elements while building a megamenu, you would do:
+
+```html
+<ul class="clicky-menu" data-clicky-submenu-selector=".clicky-menu > li > ul">
+    <!-- menu items -->
+</ul>
+```
+
+### Closing submenus with JS
+
+There are a variety of situations where you might want to force submenus to close based on interactions elsewhere on the page. For example, maybe an adjacent search toggle overlaps with submenus when expanded.
+
+To close all open submenus, dispatch the custom event `clickyMenusClose` to the `.clicky-menu` DOM node (usually the `<ul>` containing menu items).
+
+Example:
+
+```html
+<button id="close-open-submenus">Close Open Submenus</button>
+```
+
+```js
+// select the menu to manipulate
+const myMenu = document.getElementById('my-menu');
+// an element that triggers the close event
+const closeButton = document.getElementById('close-open-submenus');
+// dispatch the custom event when clicking the button
+closeButton.addEventListener( 'click', () => { myMenu.dispatchEvent( new Event( 'clickyMenusClose' ) } );
+```
+
+## Expected markup and markup transformation
 
 ```html
 <nav id="primary-nav"> <!-- element must have an ID -->
@@ -72,23 +109,11 @@ Once the script runs, the markup is changed to:
 </nav>
 ```
 
-#### Notes on Markup Transformation
+### Notes on markup transformation
 
 - All attributes on links converted to buttons are retained except for `href`.
 - All elements inside links converted to buttons, such as an SVG icon, are retained in the button.
 - When a user clicks a submenu toggle button (i.e., parent menu item), `aria-expanded` and `aria-hidden` are appropriately toggled between `true` and `false`.
-
-### Custom Submenu Selector
-
-If you have unusual markup or design requirements, you can set a custom selector for the submenu element with a `data-clicky-submenu-selector` attribute on the top-level `<ul>` element (the same one with the `clicky-menu` class).
-
-For example, if you only want to select the first level of nested `<ul>` elements while building a megamenu, you would do:
-
-```html
-<ul class="clicky-menu" data-clicky-submenu-selector=".clicky-menu > li > ul">
-    <!-- menu items -->
-</ul>
-```
 
 ## Browser Support
 
@@ -97,6 +122,11 @@ All Modern Browsers such as Firefox, Chrome, Edge, and Safari.
 Internet Explorer 11 support is possible if you include polyfills for [`closest`](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#polyfill) and [`NodeList.forEach`](https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill) and transpile your code with something like Babel.
 
 ## Changelog
+
+### 1.2.0 (May 21, 2024)
+
+- You can now close open submenus from 3rd-party JS with the `clickyMenusClose` event
+- The default CSS will now correctly position submenus relative to the parent list item
 
 ### 1.1.0 (October 19, 2023)
 
