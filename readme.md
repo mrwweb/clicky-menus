@@ -8,7 +8,7 @@ Jump to: [About](#about), [Features](#features), [Setup & Configuration](#setup-
 
 A project by Mark Root-Wiley, [MRW Web Design](https://MRWweb.com)
 
-Clicky Menus lets you create a progressively-enhanced, accessible one-level dropdown menu that opens when activated by click, touch, or `ENTER`/`SPACE`. The menu is progressively enhanced, supporting hover and keyboard navigation (in modern browsers) if JS is not enabled.
+Clicky Menus lets you create a progressively enhanced, accessible one-level dropdown menu that opens when activated by click, touch, or `ENTER`/`SPACE`. The menu supports hover and keyboard navigation when JS is not enabled.
 
 [Demo on CodePen](https://codepen.io/mrwweb/pen/pXqKZO)
 
@@ -23,6 +23,7 @@ Why should you want menus that work this way? Read the accompanying article on C
 - Close open submenu with click outside of open menu
 - Basic offscreen-menu prevention
 - [Configure custom submenu selector](#custom-submenu-selector)
+- [Programmatically close open submenus](#closing-submenus-with-js)
 
 ### Why only one level of submenu?
 
@@ -55,6 +56,7 @@ Once you have the files:
 
 1. Load `clicky-menus.js` anywhere in the DOM and `clicky-menus.css` in the `<head>`.
 2. Put the `clicky-menu` and `no-js` classes on the top-level `<ul>` element containing your menu
+3. Style your menus however you like. `clicky-menus.css` provides the most minimal styles for menu functionality so you can customize the design to your liking. [See the demo](https://codepen.io/mrwweb/pen/pXqKZO) for one example of how you could style this, including submenu animations!
 
 Most of the time, Clicky Menus requires no configuration!
 
