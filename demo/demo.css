@@ -25,7 +25,6 @@ svg[hidden] {
 	justify-content: stretch;
 	margin: 0;
 	padding: 0;
-	font-family: inherit;
 	list-style: none;
 }
 @media (min-width: 540px) {
@@ -41,6 +40,7 @@ svg[hidden] {
 	padding: 1em;
 	background: transparent;
 	color: #000;
+	font-family: inherit;
 	text-decoration: none;
 	border-radius: 3px;
 }
