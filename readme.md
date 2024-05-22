@@ -28,23 +28,41 @@ Why should you want menus that work this way? Read the accompanying article on C
 
 This script only supports a single level of submenus, i.e., there are no "sub-sub-menus" or "tertiary menus". This is intentional because:
 
-1. I personally don't like them. They give off a bit of a "navigation smell"—_a la_ "code smell"—and can often be avoided for better results.
-2. This makes it very easy to make "mega menus" that can contain nested lists (basically permanently visible tertiary menus).
+1. I don't like them. Nested dropdowns are a "navigation smell"—_a la_ "code smell"—and can often be avoided for better results.
+2. This makes it very easy to [make "mega menus"](#custom-submenu-selector) that contain nested lists (basically permanently visible sub-submenus menus).
 
 If you really want this feature, there's an [open issue for sharing use cases](https://github.com/mrwweb/clicky-menus/issues/8). If you want to submit a pull request, please coordinate on that issue before doing any work!
 
 ## Setup & Configuration
 
-Clicky menus requires one JS file, one CSS file, and a list with the class `clicky-menu`. Most of the time, Clicky Menus requires no configuration!
+Clicky Menus requires one JS file, one CSS file, and a list with the class `clicky-menu`.
 
-1. Include `clicky-menus.js` anywhere in the DOM and `clicky-menus.css` in the `<head>`.
-2. Put the `clicky-menu` class on the top-level `<ul>` element containing your menu
+### Installation
+
+You can install Clicky Menus by copying and pasting the files into your project. You can also use git or npm.
+
+With git:
+
+`$ git clone https://github.com/mrwweb/clicky-menus.git`
+
+With npm:
+
+`$ npm install clicky-menus`
+
+### Building a Clicky Menu
+
+Once you have the files:
+
+1. Load `clicky-menus.js` anywhere in the DOM and `clicky-menus.css` in the `<head>`.
+2. Put the `clicky-menu` and `no-js` classes on the top-level `<ul>` element containing your menu
+
+Most of the time, Clicky Menus requires no configuration!
 
 ### Custom submenu selector
 
-If you have unusual markup or design requirements, you can set a custom selector for the submenu element with a `data-clicky-submenu-selector` attribute on the top-level `<ul>` element (the same one with the `clicky-menu` class).
+If you have unusual markup or design requirements, you can set a custom selector to target submenu elements. Do this by adding a `data-clicky-submenu-selector` attribute on the top-level `<ul>` element (the same one with the `clicky-menu` class) that contains a valid CSS selector.
 
-For example, if you only want to select the first level of nested `<ul>` elements while building a megamenu, you would do:
+For example, if you only want to only select the first level of nested `<ul>` elements while building a megamenu, you would do:
 
 ```html
 <ul class="clicky-menu" data-clicky-submenu-selector=".clicky-menu > li > ul">
@@ -67,16 +85,18 @@ Example:
 ```js
 // select the menu to manipulate
 const myMenu = document.getElementById('my-menu');
-// an element that triggers the close event
+// the element that triggers the close event
 const closeButton = document.getElementById('close-open-submenus');
 // dispatch the custom event when clicking the button
-closeButton.addEventListener( 'click', () => { myMenu.dispatchEvent( new Event( 'clickyMenusClose' ) } );
+closeButton.addEventListener('click', () => {
+    myMenu.dispatchEvent( new Event( 'clickyMenusClose' );
+});
 ```
 
 ## Expected markup and markup transformation
 
 ```html
-<nav id="primary-nav"> <!-- element must have an ID -->
+<nav id="primary-nav"><!-- menu parent element must have an ID -->
  <ul class="clicky-menu no-js">
   <li>
    <a href="#" class="a-custom-class">Parent Menu Item 1</a>
