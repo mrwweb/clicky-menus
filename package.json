@@ -40,9 +40,7 @@
     "url": "https://github.com/mrwweb/clicky-menus/issues"
   },
   "funding": [
-    {
-      "type" : "individual",
-      "url" : "https://www.paypal.com/paypalme/rootwiley"
-    }
+    "https://github.com/sponsors/mrwweb",
+    "https://www.paypal.com/paypalme/rootwiley"
   ]
 }
