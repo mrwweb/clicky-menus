@@ -89,8 +89,10 @@ Example:
 ```js
 // select the menu to manipulate
 const myMenu = document.getElementById('my-menu');
+
 // the element that triggers the close event
 const closeButton = document.getElementById('close-open-submenus');
+
 // dispatch the custom event when clicking the button
 closeButton.addEventListener('click', () => {
     myMenu.dispatchEvent( new Event( 'clickyMenusClose' );
@@ -110,7 +112,7 @@ closeButton.addEventListener('click', () => {
     <li><a href="page-1c.html">Submenu Item 1c</a></li>
    </ul>
   </li>
-  <--! etc… -->
+  <!-- etc… -->
  </ul>
 </nav>
 ```
@@ -128,7 +130,7 @@ Once the script runs, the markup is changed to:
     <li><a href="page-1c.html">Submenu Item 1c</a></li>
    </ul>
   </li>
-  <--! etc… -->
+  <!-- etc… -->
  </ul>
 </nav>
 ```
