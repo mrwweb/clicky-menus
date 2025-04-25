@@ -159,7 +159,7 @@ Internet Explorer 11 support is possible if you include polyfills for [`closest`
 
 - NEW! Use the `data-clicky-menus-close` attribute on any element to automatically close the open submenu. It should be set to the ID of the element with the `clicky-menu` class. Fixes #21.
 - Don't let `ESC` propogate when pressed on an item inside a submenu. This should generally prevent dialogs and other toggle features from closing when they contain a menu. Fixes #22
-- Stripe special characters from automatically generated submenu IDs and add an increment (e.g. `-1`) to the end of each ID to get much closer to guaranteeing it is unique. Fixes #12
+- Strip special characters from automatically generated submenu IDs and add an increment (e.g. `-1`) to the end of each ID to get much closer to guaranteeing it is unique. Fixes #12
 
 ### 1.2.0 (May 21, 2024)
 
