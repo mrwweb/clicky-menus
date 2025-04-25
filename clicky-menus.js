@@ -168,4 +168,19 @@
 			clickyMenu.init();
 		} );
 	} );
+
+	function dispatchMenuClose(e) {
+		const menuId = e.currentTarget.getAttribute('data-clicky-menus-close');
+		const menu = document.getElementById( menuId );
+		if( menu ) {
+			menu.dispatchEvent( new Event( 'clickyMenusClose' ) );
+		}
+	}
+
+	const menuClosers = document.querySelectorAll( '[data-clicky-menus-close]' );
+	if( menuClosers ) {
+		menuClosers.forEach( ( menuCloser ) => {
+			menuCloser.addEventListener( 'click', dispatchMenuClose );
+		} );
+	}
 }() );
