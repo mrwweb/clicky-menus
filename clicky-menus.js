@@ -142,9 +142,11 @@
 
 			let id;
 			if ( null === submenuId ) {
-				id = button.textContent.trim().replace( /\s+/g, '-' ).toLowerCase() + '-submenu';
+				id = button.textContent.trim().replace( /\s+/g, '-' ).replace(/^[^a-zA-Z]+|[^\w:.-]+/g, "").toLowerCase() + `-submenu-${i}`;
+				i++;
 			} else {
-				id = submenuId + '-submenu';
+				id = `${submenuId}-submenu-${i}`;
+				i++;
 			}
 
 			// set button ARIA
