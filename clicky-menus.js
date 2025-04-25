@@ -9,7 +9,7 @@
 		// DOM element(s)
 		const container = menu.parentElement;
 		let currentMenuItem,
-			i,
+			i = 0,
 			len;
 
 		this.init = function() {
@@ -62,7 +62,7 @@
 		}
 
 		function closeOnEscKey( e ) {
-			if (	27 === e.keyCode ) {
+			if ( 27 === e.keyCode ) {
 				// we're in a submenu item
 				if ( null !== e.target.closest( 'ul[aria-hidden="false"]' ) ) {
 					currentMenuItem.focus();
@@ -117,14 +117,14 @@
 		 */
 		function convertLinkToButton( menuItem ) {
 			const 	link = menuItem.getElementsByTagName( 'a' )[ 0 ],
-				linkHTML = link.innerHTML,
-				linkAtts = link.attributes,
-				button = document.createElement( 'button' );
+					linkHTML = link.innerHTML,
+					linkAtts = link.attributes,
+					button = document.createElement( 'button' );
 
 			if ( null !== link ) {
 				// copy button attributes and content from link
 				button.innerHTML = linkHTML.trim();
-				for ( i = 0, len = linkAtts.length; i < len; i++ ) {
+				for ( len = linkAtts.length; i < len; i++ ) {
 					const attr = linkAtts[ i ];
 					if ( 'href' !== attr.name ) {
 						button.setAttribute( attr.name, attr.value );
