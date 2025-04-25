@@ -67,10 +67,11 @@
 				if ( null !== e.target.closest( 'ul[aria-hidden="false"]' ) ) {
 					currentMenuItem.focus();
 					toggleSubmenu( currentMenuItem );
-
+					e.stopPropagation();
 				// we're on a parent item
 				} else if ( 'true' === e.target.getAttribute( 'aria-expanded' ) ) {
 					toggleSubmenu( currentMenuItem );
+					e.stopPropagation();
 				}
 			}
 		}
