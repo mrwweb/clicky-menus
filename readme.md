@@ -1,6 +1,6 @@
 # Clicky Menus
 
-Version 1.2.0
+Version 1.3.0
 
 Jump to: [About](#about), [Features](#features), [Setup & Configuration](#setup--configuration), [Browser Support](#browser-support) [Changelog](#changelog)
 
@@ -25,7 +25,7 @@ Why should you want menus that work this way? Read the accompanying article on C
 - Close open submenu with click outside of open menu
 - Basic offscreen-menu prevention
 - [Configure custom submenu selector](#custom-submenu-selector)
-- [Programmatically close open submenus](#closing-submenus-with-js)
+- [Close open submenus with a button](#closing-open-submenus-with-data-attribute-or-custom-javascript-event)
 
 ### Why only one level of submenu?
 
@@ -74,13 +74,21 @@ For example, if you only want to only select the first level of nested `<ul>` el
 </ul>
 ```
 
-### Closing submenus with JS
+### Closing open submenus with data attribute or custom JavaScript event
 
 There are a variety of situations where you might want to force submenus to close based on interactions elsewhere on the page. For example, maybe an adjacent search toggle overlaps with submenus when expanded.
 
 To close all open submenus, dispatch the custom event `clickyMenusClose` to the `.clicky-menu` DOM node (usually the `<ul>` containing menu items).
 
-Example:
+#### With data attribute
+
+Where `my-menu` is the ID of the menu you want to close and is the element with the `clicky-menu` class:
+
+```html
+<button data-clicky-menus-close="my-menu">Close Open Submenus</button>
+```
+
+#### With custom JavaScript event
 
 ```html
 <button id="close-open-submenus">Close Open Submenus</button>
@@ -146,6 +154,12 @@ All Modern Browsers such as Firefox, Chrome, Edge, and Safari.
 Internet Explorer 11 support is possible if you include polyfills for [`closest`](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#polyfill) and [`NodeList.forEach`](https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill) and transpile your code with something like Babel.
 
 ## Changelog
+
+### 1.3.0 (April 25, 2025)
+
+- NEW! Use the `data-clicky-menus-close` attribute on any element to automatically close the open submenu. It should be set to the ID of the element with the `clicky-menu` class. Fixes #21.
+- Don't let `ESC` propogate when pressed on an item inside a submenu. This should generally prevent dialogs and other toggle features from closing when they contain a menu. Fixes #22
+- Stripe special characters from automatically generated submenu IDs and add an increment (e.g. `-1`) to the end of each ID to get much closer to guaranteeing it is unique. Fixes #12
 
 ### 1.2.0 (May 21, 2024)
 
