@@ -1,11 +1,11 @@
 /**
- * Clicky Menus v1.3.0
+ * Clicky Menus v1.4.0
  */
 
 ( function() {
 	'use strict';
 
-	const ClickyMenus = function( menu ) {
+	const ClickyMenus = function( menu, menuIndex ) {
 		// DOM element(s)
 		const container = menu.parentElement;
 		let currentMenuItem,
@@ -141,11 +141,12 @@
 			const submenuId = submenu.getAttribute( 'id' );
 
 			let id;
+			const idSuffix =  `-submenu-${menuIndex}-${i}`;
 			if ( null === submenuId ) {
-				id = button.textContent.trim().replace( /\s+/g, '-' ).replace(/^[^a-zA-Z]+|[^\w:.-]+/g, "").toLowerCase() + `-submenu-${i}`;
+				id = button.textContent.trim().replace( /\s+/g, '-' ).replace(/^[^a-zA-Z]+|[^\w:.-]+/g, "").toLowerCase() + idSuffix;
 				i++;
 			} else {
-				id = `${submenuId}-submenu-${i}`;
+				id = submenuId + idSuffix;
 				i++;
 			}
 
@@ -162,10 +163,11 @@
 	/* Create a ClickMenus object and initiate menu for any menu with .clicky-menu class */
 	document.addEventListener( 'DOMContentLoaded', function() {
 		const menus = document.querySelectorAll( '.clicky-menu' );
-
+		let i = 1;
 		menus.forEach( ( menu ) => {
-			const clickyMenu = new ClickyMenus( menu );
+			const clickyMenu = new ClickyMenus( menu, i );
 			clickyMenu.init();
+			i++;
 		} );
 	} );
 

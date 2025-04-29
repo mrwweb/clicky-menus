@@ -1,6 +1,6 @@
 # Clicky Menus
 
-Version 1.3.0
+Version 1.4.0
 
 Jump to: [About](#about), [Features](#features), [Setup & Configuration](#setup--configuration), [Browser Support](#browser-support) [Changelog](#changelog)
 
@@ -156,6 +156,10 @@ All Modern Browsers such as Firefox, Chrome, Edge, and Safari.
 Internet Explorer 11 support is possible if you include polyfills for [`closest`](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#polyfill) and [`NodeList.forEach`](https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill) and transpile your code with something like Babel.
 
 ## Changelog
+
+### 1.4.0 (April 29, 2025)
+
+- Further differentiate automatically-generated submenu IDs by including a unique ID for each clicky-menu.
 
 ### 1.3.0 (April 25, 2025)
 
