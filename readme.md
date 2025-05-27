@@ -14,6 +14,7 @@ Clicky Menus lets you create a progressively enhanced, accessible one-level drop
 
 Why should you want menus that work this way? Read the accompanying article on CSS Tricks, ["In Praise of the Unambiguous Click Menu"](https://css-tricks.com/in-praise-of-the-unambiguous-click-menu/).
 
+> [!TIP]
 > Did this save you an hour? Did this save you four hours? Consider [sponsoring my work on the project](https://github.com/sponsors/mrwweb)!
 
 ## Features
