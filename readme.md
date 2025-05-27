@@ -1,6 +1,6 @@
 # Clicky Menus
 
-Version 1.4.0
+Version 1.5.0
 
 Jump to: [About](#about), [Features](#features), [Setup & Configuration](#setup--configuration), [Browser Support](#browser-support) [Changelog](#changelog)
 
@@ -156,6 +156,10 @@ All Modern Browsers such as Firefox, Chrome, Edge, and Safari.
 Internet Explorer 11 support is possible if you include polyfills for [`closest`](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#polyfill) and [`NodeList.forEach`](https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill) and transpile your code with something like Babel.
 
 ## Changelog
+
+### 1.5.0 (May 27, 2025)
+
+- Change `ESC` key event handler to fire on `keydown` instead of `keyup` and use `.preventDefault()` instead of `.stopPropogation()` when focus is inside a submenu or parent of open submenu. This will prevent the `ESC` key from closing `dialog` elements when a clicky-menu is inside one.
 
 ### 1.4.0 (April 29, 2025)
 

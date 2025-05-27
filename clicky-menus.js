@@ -1,5 +1,5 @@
 /**
- * Clicky Menus v1.4.0
+ * Clicky Menus v1.5.0
  */
 
 ( function() {
@@ -67,11 +67,11 @@
 				if ( null !== e.target.closest( 'ul[aria-hidden="false"]' ) ) {
 					currentMenuItem.focus();
 					toggleSubmenu( currentMenuItem );
-					e.stopPropagation();
+					e.preventDefault();
 				// we're on a parent item
 				} else if ( 'true' === e.target.getAttribute( 'aria-expanded' ) ) {
 					toggleSubmenu( currentMenuItem );
-					e.stopPropagation();
+					e.preventDefault();
 				}
 			}
 		}
@@ -105,7 +105,7 @@
 
 					// bind event listener to button
 					button.addEventListener( 'click', toggleOnMenuClick );
-					menu.addEventListener( 'keyup', closeOnEscKey );
+					menu.addEventListener( 'keydown', closeOnEscKey );
 				}
 			} );
 		}
