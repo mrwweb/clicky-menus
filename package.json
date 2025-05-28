@@ -22,9 +22,6 @@
   ],
   "main": "clicky-menus.js",
   "style": "clicky-menus.css",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "files": [
     "clicky-menus.js",
     "clicky-menus.css",
