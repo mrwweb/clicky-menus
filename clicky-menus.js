@@ -9,7 +9,7 @@
 		// DOM element(s)
 		const container = menu.parentElement;
 		let currentMenuItem,
-			i = 0,
+			i,
 			len;
 
 		this.init = function() {
@@ -124,7 +124,7 @@
 			if ( null !== link ) {
 				// copy button attributes and content from link
 				button.innerHTML = linkHTML.trim();
-				for ( len = linkAtts.length; i < len; i++ ) {
+				for ( i = 0, len = linkAtts.length; i < len; i++ ) {
 					const attr = linkAtts[ i ];
 					if ( 'href' !== attr.name ) {
 						button.setAttribute( attr.name, attr.value );
