@@ -1,6 +1,6 @@
 # Clicky Menus
 
-Version 1.5.0
+Version 1.5.2
 
 Jump to: [About](#about), [Features](#features), [Setup & Configuration](#setup--configuration), [Browser Support](#browser-support) [Changelog](#changelog)
 
@@ -158,7 +158,12 @@ Internet Explorer 11 support is possible if you include polyfills for [`closest`
 
 ## Changelog
 
-### 1.5.0 (May 27, 2025)
+### 1.5.2 (October 30, 2025)
+
+- Resolve issue since 1.2.0 where replaced parent link attributes were not correctly transfered to the button. Closes #27
+- Make sure scripts works fully when loaded in the `<head>`
+
+### 1.5.0 /  1.5.1 (May 27, 2025)
 
 - Change `ESC` key event handler to fire on `keydown` instead of `keyup` and use `.preventDefault()` instead of `.stopPropogation()` when focus is inside a submenu or parent of open submenu. This will prevent the `ESC` key from closing `dialog` elements when a clicky-menu is inside one.
 - Note: v1.5.1 is identical to v1.5.0. Published to NPM to ensure latest version is used after adding v1.4.0 and v1.3.0 to NPM registry.

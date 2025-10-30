@@ -1,5 +1,5 @@
 /**
- * Clicky Menus v1.5.0
+ * Clicky Menus v1.5.2
  */
 
 ( function() {
@@ -9,7 +9,7 @@
 		// DOM element(s)
 		const container = menu.parentElement;
 		let currentMenuItem,
-			i = 0,
+			i,
 			len;
 
 		this.init = function() {
@@ -124,7 +124,7 @@
 			if ( null !== link ) {
 				// copy button attributes and content from link
 				button.innerHTML = linkHTML.trim();
-				for ( len = linkAtts.length; i < len; i++ ) {
+				for ( i = 0, len = linkAtts.length; i < len; i++ ) {
 					const attr = linkAtts[ i ];
 					if ( 'href' !== attr.name ) {
 						button.setAttribute( attr.name, attr.value );
@@ -160,6 +160,14 @@
 		}
 	};
 
+	function dispatchMenuClose(e) {
+		const menuId = e.currentTarget.getAttribute('data-clicky-menus-close');
+		const menu = document.getElementById( menuId );
+		if( menu ) {
+			menu.dispatchEvent( new Event( 'clickyMenusClose' ) );
+		}
+	}
+
 	/* Create a ClickMenus object and initiate menu for any menu with .clicky-menu class */
 	document.addEventListener( 'DOMContentLoaded', function() {
 		const menus = document.querySelectorAll( '.clicky-menu' );
@@ -169,20 +177,12 @@
 			clickyMenu.init();
 			i++;
 		} );
-	} );
 
-	function dispatchMenuClose(e) {
-		const menuId = e.currentTarget.getAttribute('data-clicky-menus-close');
-		const menu = document.getElementById( menuId );
-		if( menu ) {
-			menu.dispatchEvent( new Event( 'clickyMenusClose' ) );
+		const menuClosers = document.querySelectorAll( '[data-clicky-menus-close]' );
+		if( menuClosers ) {
+			menuClosers.forEach( ( menuCloser ) => {
+				menuCloser.addEventListener( 'click', dispatchMenuClose );
+			} );
 		}
-	}
-
-	const menuClosers = document.querySelectorAll( '[data-clicky-menus-close]' );
-	if( menuClosers ) {
-		menuClosers.forEach( ( menuCloser ) => {
-			menuCloser.addEventListener( 'click', dispatchMenuClose );
-		} );
-	}
+	} );
 }() );
