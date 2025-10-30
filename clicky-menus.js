@@ -160,6 +160,14 @@
 		}
 	};
 
+	function dispatchMenuClose(e) {
+		const menuId = e.currentTarget.getAttribute('data-clicky-menus-close');
+		const menu = document.getElementById( menuId );
+		if( menu ) {
+			menu.dispatchEvent( new Event( 'clickyMenusClose' ) );
+		}
+	}
+
 	/* Create a ClickMenus object and initiate menu for any menu with .clicky-menu class */
 	document.addEventListener( 'DOMContentLoaded', function() {
 		const menus = document.querySelectorAll( '.clicky-menu' );
@@ -169,20 +177,12 @@
 			clickyMenu.init();
 			i++;
 		} );
-	} );
 
-	function dispatchMenuClose(e) {
-		const menuId = e.currentTarget.getAttribute('data-clicky-menus-close');
-		const menu = document.getElementById( menuId );
-		if( menu ) {
-			menu.dispatchEvent( new Event( 'clickyMenusClose' ) );
+		const menuClosers = document.querySelectorAll( '[data-clicky-menus-close]' );
+		if( menuClosers ) {
+			menuClosers.forEach( ( menuCloser ) => {
+				menuCloser.addEventListener( 'click', dispatchMenuClose );
+			} );
 		}
-	}
-
-	const menuClosers = document.querySelectorAll( '[data-clicky-menus-close]' );
-	if( menuClosers ) {
-		menuClosers.forEach( ( menuCloser ) => {
-			menuCloser.addEventListener( 'click', dispatchMenuClose );
-		} );
-	}
+	} );
 }() );
