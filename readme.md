@@ -160,7 +160,7 @@ Internet Explorer 11 support is possible if you include polyfills for [`closest`
 
 ### 1.5.2 (October 30, 2025)
 
-- Resolve issue since 1.2.0 where replaced parent link attributes were not correctly transfered to the button
+- Resolve issue since 1.2.0 where replaced parent link attributes were not correctly transfered to the button. Closes #27
 - Make sure scripts works fully when loaded in the `<head>`
 
 ### 1.5.0 /  1.5.1 (May 27, 2025)
